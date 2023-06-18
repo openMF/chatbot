@@ -10,18 +10,21 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
-
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 
 @RestController
 @RequestMapping(path = "/")
 public class controller {
 
-    String rasaEndpoint = "http://localhost:5005/webhooks/rest/webhook";
+    @Value("${RASA_SERVER}")
+    private String RASA_SERVER;
 
     @Autowired
     AuthenticationProxy authenticationProxy;
@@ -38,14 +41,14 @@ public class controller {
         MediaType mediaType = MediaType.parse("text/plain");
         RequestBody body = RequestBody.create(mediaType, createJSONRequest(message));
         Request request = new Request.Builder()
-                .url(rasaEndpoint)
+                .url(RASA_SERVER)
                 .method("POST", body)
                 .addHeader("Content-Type", "text/plain")
                 .build();
         Response response = client.newCall(request).execute();
         if(response.code() == 200) {
-            String responseBody = response.body().string();
-            return responseBody;
+            String result = createResponse(response.body().string());
+            return result;
         }
         else {
             return "Request failed with status code: " + response.code();
@@ -59,5 +62,23 @@ public class controller {
         jsonNode.put("message", string);
 
         return mapper.writeValueAsString(jsonNode);
+    }
+
+    private String createResponse(String botResponse) {
+        StringBuilder responseBuilder = new StringBuilder();
+        String pattern = "\"(text|image)\":\"(.*?)\"";
+        Pattern regex = Pattern.compile(pattern);
+        Matcher matcher = regex.matcher(botResponse);
+
+        while (matcher.find()) {
+            String key = matcher.group(1);
+            String value = matcher.group(2);
+            if (key.equals("text")) {
+                responseBuilder.append(value).append("\n");
+            } else if (key.equals("image")) {
+                responseBuilder.append(" [Image: ").append(value).append("]\n");
+            }
+        }
+        return responseBuilder.toString();
     }
 }
