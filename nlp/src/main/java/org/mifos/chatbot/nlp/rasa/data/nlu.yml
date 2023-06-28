@@ -1,0 +1,121 @@
+version: "3.1"
+
+nlu:
+  - intent: greet
+    examples: |
+      - hey
+      - hello
+      - hi
+      - hello there
+      - good morning
+      - good evening
+      - moin
+      - hey there
+      - let's go
+      - hey dude
+      - goodmorning
+      - goodevening
+      - good afternoon
+
+  - intent: goodbye
+    examples: |
+      - cu
+      - good by
+      - cee you later
+      - good night
+      - bye
+      - goodbye
+      - have a nice day
+      - see you around
+      - bye bye
+      - see you later
+
+  - intent: affirm
+    examples: |
+      - yes
+      - y
+      - indeed
+      - of course
+      - that sounds good
+      - correct
+
+  - intent: deny
+    examples: |
+      - no
+      - n
+      - never
+      - I don't think so
+      - don't like that
+      - no way
+      - not really
+
+  - intent: mood_great
+    examples: |
+      - perfect
+      - great
+      - amazing
+      - feeling like a king
+      - wonderful
+      - I am feeling very good
+      - I am great
+      - I am amazing
+      - I am going to save the world
+      - super stoked
+      - extremely good
+      - so so perfect
+      - so good
+      - so perfect
+
+  - intent: mood_unhappy
+    examples: |
+      - my day was horrible
+      - I am sad
+      - I don't feel very well
+      - I am disappointed
+      - super sad
+      - I'm so sad
+      - sad
+      - very sad
+      - unhappy
+      - not good
+      - not very good
+      - extremly sad
+      - so saad
+      - so sad
+
+  - intent: bot_challenge
+    examples: |
+      - are you a bot?
+      - are you a human?
+      - am I talking to a bot?
+      - am I talking to a human?
+
+  - intent: login_credentials
+    examples: |
+      - login:[mifos]{"entity":"username", "value":"mifos"} [abc]{"entity":"password", "value":"abc"}
+      - login:[john_doe]{"entity":"username", "value":"john_doe"} [p@ssword]{"entity":"password", "value":"p@ssword"}
+      - login:[admin]{"entity":"username", "value":"admin"} [123456]{"entity":"password", "value":"123456"}
+      - login:[user-name]{"entity":"username", "value":"user-name"} [password@123]{"entity":"password", "value":"password@123"}
+      - login:[can_be_anything]{"entity":"username", "value":"can_be_anything"} [abc]{"entity":"password", "value":"!23abpoz"}
+      - login:[Apache fineract]{"entity":"username", "value":"Apache fineract"} [p@ssword]{"entity":"password", "value":"pofbckaowpdf"}
+      - login:[admin@123]{"entity":"username", "value":"admin@123"} [123456]{"entity":"password", "value":"09653hsbaAHG"}
+      - login:[user-name]{"entity":"username", "value":"user-name"} [password@123]{"entity":"password", "value":"password@123"}
+
+  - intent: loan_status
+    examples: |
+      - my loan status
+      - what is my loan status
+      - whats my loan status
+      - what's my loan status
+      - check my loan status
+      - look my loan status
+      - give my loan status
+      - loan status
+      - what is loan status
+      - whats loan status
+      - what's loan status
+      - check loan status
+      - look loan status
+      - give loan status
+
+

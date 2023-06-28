@@ -1,0 +1,25 @@
+version: "3.1"
+
+rules:
+
+  #- rule: Auth form
+  #  steps:
+  #  - intent: login_credentials
+  #  - action: auth_form
+  #  - active_loop: auth_form
+
+  - rule: Say goodbye anytime the user says goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - rule: Say 'I am a bot' anytime the user challenges
+    steps:
+      - intent: bot_challenge
+      - action: utter_iamabot
+
+  - rule: Extract login credentials
+    steps:
+      - intent: login_credentials
+      - action: extract_login_credentials
+
