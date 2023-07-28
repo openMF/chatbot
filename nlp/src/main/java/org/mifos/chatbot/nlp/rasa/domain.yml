@@ -10,9 +10,16 @@ intents:
   - bot_challenge
   - login_credentials
   - loan_status
+  - disbursement_amount
+  - disbursement_interest
+  - disbursement_date
+  - maturity_date
+  - next_due_date
 
 actions:
+  - action_hello_world
   - action_extract_credentials
+  - action_loan_status
 
 responses:
   utter_greet:
@@ -37,6 +44,24 @@ responses:
   utter_success:
     - text: "Successfully login"
 
+  utter_loan_status:
+    - text: "Your loan status is ."
+
+  utter_disbursement_amount:
+    - text: "The disbursement amount is "
+
+  utter_disbursement_interest:
+    - text: "The disbursement interest is "
+
+  utter_disbursement_date:
+    - text: "The disbursement date is "
+
+  utter_maturity_date:
+    - text: "The maturity date is "
+
+  utter_next_due_date:
+    - text: "Your next due date is "
+
 slots:
   username:
     type: text
@@ -48,6 +73,7 @@ slots:
     mappings:
       - type: custom
         action: action_extract_credentials
+
 
 session_config:
   session_expiration_time: 60

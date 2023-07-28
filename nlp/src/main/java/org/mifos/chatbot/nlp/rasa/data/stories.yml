@@ -7,7 +7,37 @@ stories:
       - intent: greet
       - action: utter_greet
       - intent: mood_great
+      - action: action_hello_world
       - action: utter_happy
+
+  - story: get loan status
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - intent: loan_status
+      - action: utter_loan_status
+
+  - story: disbursement amount
+    steps:
+      - intent: disbursement_amount
+      - action: utter_disbursement_amount
+      - intent: disbursement_interest
+      - action: utter_disbursement_interest
+
+  - story: disbursement date
+    steps:
+      - intent: disbursement_date
+      - action: utter_disbursement_date
+
+  - story: maturity date
+    steps:
+      - intent: maturity_date
+      - action: utter_maturity_date
+
+  - story: get next due date
+    steps:
+      - intent: next_due_date
+      - action: utter_next_due_date
 
 #  - story: story for login happy
 #    steps:

@@ -1,7 +1,10 @@
 package org.mifos.chatbot.server.service;
 
+import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -29,11 +32,13 @@ public class Helper {
 
     public String createJSONRequest(String string) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
-        ObjectNode jsonNode = mapper.createObjectNode();
+        mapper.enable(JsonGenerator.Feature.ESCAPE_NON_ASCII);
+        ObjectWriter writer = mapper.writer().without(SerializationFeature.WRITE_SINGLE_ELEM_ARRAYS_UNWRAPPED);
 
+        ObjectNode jsonNode = mapper.createObjectNode();
         jsonNode.put("message", string);
 
-        return mapper.writeValueAsString(jsonNode);
+        return writer.writeValueAsString(jsonNode);
     }
 
     public String createResponse(String botResponse) {
@@ -106,5 +111,14 @@ public class Helper {
                 .confidence(a.get("confidence").getAsDouble())
                 .build();
         return intent;
+    }
+
+    public String getDate(List<Integer> dateList) {
+        int year = dateList.get(0);
+        int month = dateList.get(1);
+        int day = dateList.get(2);
+
+        // Format the date as 'MM/DD/YYYY'
+        return String.format("%02d/%02d/%04d", month, day, year);
     }
 }

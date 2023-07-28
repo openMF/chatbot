@@ -117,5 +117,94 @@ nlu:
       - check loan status
       - look loan status
       - give loan status
+      
+
+  - intent: disbursement_amount
+    examples: |
+      - my disbursement amount
+      - what is my disbursement amount
+      - whats my disbursement amount
+      - what's my disbursement amount
+      - check my disbursement amount
+      - look my disbursement amount
+      - give my disbursement amount
+      - disbursement amount
+      - what is disbursement amount
+      - whats disbursement amount
+      - what's disbursement amount
+      - check disbursement amount
+      - look disbursement amount
+      - give disbursement amount
+
+  - intent: disbursement_interest
+    examples: |
+      - my disbursement interest
+      - what is my disbursement interest
+      - whats my disbursement interest
+      - what's my disbursement interest
+      - check my disbursement interest
+      - look my disbursement interest
+      - give my disbursement interest
+      - disbursement interest
+      - what is disbursement interest
+      - whats disbursement interest
+      - what's disbursement interest
+      - check disbursement interest
+      - look disbursement interest
+      - give disbursement interest
+
+  - intent: disbursement_date
+    examples: |
+      - my disbursement date
+      - what is my disbursement date
+      - whats my disbursement date
+      - what's my disbursement date
+      - check my disbursement date
+      - look my disbursement date
+      - give my disbursement date
+      - disbursement date
+      - what is disbursement date
+      - whats disbursement date
+      - what's disbursement date
+      - check disbursement date
+      - look disbursement date
+      - give disbursement date
+
+  - intent: maturity_date
+    examples: |
+      - my maturity date
+      - what is my maturity date
+      - whats my maturity date
+      - what's my maturity date
+      - check my maturity date
+      - look my maturity date
+      - give my maturity date
+      - maturity date
+      - what is maturity date
+      - whats maturity date
+      - what's maturity date
+      - check maturity date
+      - look maturity date
+      - give maturity date
+
+  - intent: next_due_date
+    examples: |
+      - my next due date
+      - my due date
+      - what is my next due date
+      - what is my due date
+      - give my due date
+      - give my next due date
+      - due date
+      - next due date
+      - look up my due date
+      - what's my next due date
+      - check my due date
+      - check my next due date
+      - what is my next due date
+      - what is my due date
+      - look at my due date
+      - look at my next due date
+      - next payment due date
 
 

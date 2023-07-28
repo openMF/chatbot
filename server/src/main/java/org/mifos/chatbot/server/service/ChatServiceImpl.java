@@ -1,47 +1,48 @@
-package org.mifos.chatbot.server.service.Impl;
+package org.mifos.chatbot.server.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.gson.JsonObject;
+import com.sun.org.apache.regexp.internal.RE;
 import okhttp3.*;
 import org.mifos.chatbot.server.model.Intent;
 import org.mifos.chatbot.server.model.Tracker;
-import org.mifos.chatbot.server.service.Helper;
-import org.mifos.chatbot.server.service.ChatService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 
 @Service
-public class ChatServiceImpl implements ChatService {
-
-    private static final String LOGIN_CREDENTIALS = "login_credentials";
+public class ChatServiceImpl {
     @Value("${RASA_SERVER}")
-    private String RASA_SERVER = "http://localhost:5005";
-
+    private String RASA_SERVER;
     @Value("${WEBHOOK}")
-    private String WEBHOOK = "webhooks/rest/webhook";
-
+    private String WEBHOOK;
     Helper helper = new Helper();
-    FineractServiceImpl fineractService = new FineractServiceImpl();
+    private static final String LOGIN_CREDENTIALS = "login_credentials";
+    private static final String LOAN_STATUS = "loan_status";
+    private static final String DISBURSEMENT_AMOUNT = "disbursement_amount";
+    private static final String DISBURSEMENT_DATE = "disbursement_date";
+    private static final String MATURITY_DATE = "maturity_date";
+    private static final String NEXT_DUE_DATE = "next_due_date";
 
-    @Override
-    public void processUserUtterance(String botResponse, String conversationId) throws IOException {
+    @Autowired
+    private GetLoanServiceImpl loanService;
+
+    public String processUserUtterance(String botResponse, String conversationId) throws IOException {
         Tracker tracker = retriveConversationTracker(conversationId);
         Intent intent = findIntent(tracker);
-        classifyIntent(botResponse, intent, tracker);
+        return classifyIntent(botResponse, intent, tracker);
     }
-
-    @Override
     public String getResponse(String message) throws IOException {
         OkHttpClient client = new OkHttpClient().newBuilder()
                 .build();
-        MediaType mediaType = MediaType.parse("text/plain");
+        MediaType mediaType = MediaType.parse("application/json");
+        System.out.println("JSON Payload: " + helper.createJSONRequest(message));
         RequestBody body = RequestBody.create(mediaType, helper.createJSONRequest(message));
         Request request = new Request.Builder()
-                .url(RASA_SERVER + "\\" + WEBHOOK)
+                .url("http://localhost:5005/webhooks/rest/webhook")
                 .method("POST", body)
-                .addHeader("Content-Type", "text/plain")
+                .addHeader("Content-Type", "application/json")
                 .build();
         Response response = client.newCall(request).execute();
         if(response.code() != 200) {
@@ -50,18 +51,26 @@ public class ChatServiceImpl implements ChatService {
         return response.message();
     }
 
-    @Override
     public String classifyIntent(String botResponse, Intent intent, Tracker tracker) {
         String intentName = intent.getName();
-        if(intentName.equals(LOGIN_CREDENTIALS)) {
-            // TODO : call fineract authorization API
-            fineractService.authorization(tracker.getLatestMessage().getText());
+//        if(intentName.equals(LOGIN_CREDENTIALS)) {
+//            loanServic.authorization(tracker.getLatestMessage().getText());
+//        }
+        if(intentName.equals(LOAN_STATUS)) {
+            return loanService.getLoanStatus(botResponse, tracker);
         }
-
+        else if(intentName.equals(DISBURSEMENT_DATE)) {
+            return loanService.getDisbursementDate(botResponse);
+        }
+        else if(intentName.equals(MATURITY_DATE)) {
+            return loanService.getMaturityDate(botResponse);
+        }
+        else if(intentName.equals(NEXT_DUE_DATE)) {
+            return loanService.getNextDueDate(botResponse);
+        }
         return botResponse;
     }
 
-    @Override
     public Tracker retriveConversationTracker(String conversationId) throws IOException {
         OkHttpClient client = new OkHttpClient().newBuilder()
                 .build();
@@ -78,7 +87,6 @@ public class ChatServiceImpl implements ChatService {
         return tracker;
     }
 
-    @Override
     public Intent findIntent(Tracker tracker) {
         return tracker.getLatestMessage().getIntent();
     }
