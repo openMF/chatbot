@@ -13,7 +13,7 @@ import org.mifos.chatbot.server.config.openFeign.Response.DisbursementDetail;
 import org.mifos.chatbot.server.config.openFeign.Response.GetLoansResponse;
 import org.mifos.chatbot.server.model.LoanAccount;
 import org.mifos.chatbot.server.model.LoanAccounts;
-import org.mifos.chatbot.server.repository.ClientRepository;
+//import org.mifos.chatbot.server.repository.ClientRepository;
 import org.mifos.chatbot.server.config.openFeign.FineractServiceOpenFeign;
 import org.mifos.chatbot.server.model.Client;
 import org.mifos.chatbot.server.model.Tracker;
@@ -32,8 +32,8 @@ import java.util.List;
 @Service
 public class FineractServiceImpl {
 
-   @Autowired
-   private ClientRepository clientRepository;
+//   @Autowired
+//   private ClientRepository clientRepository;
    @Autowired
    private FineractServiceOpenFeign openFeign;
 
@@ -66,7 +66,7 @@ public class FineractServiceImpl {
                         .adminPassword(adminPassword)
                         .clientUsername(clientUsername)
                         .build();
-                clientRepository.save(client);
+                //clientRepository.save(client);
             }
             else {
 

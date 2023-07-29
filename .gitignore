@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### RASA ###
+src/main/java/org/mifos/chatbot/nlp/rasa/.rasa/cache
+
