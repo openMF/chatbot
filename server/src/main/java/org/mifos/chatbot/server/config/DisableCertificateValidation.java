@@ -28,7 +28,7 @@ public class DisableCertificateValidation {
         };
 
         // Create a SSLContext with the Trust Manager
-        SSLContext sslContext = SSLContext.getInstance("TLSv1.2");
+        SSLContext sslContext = SSLContext.getInstance("TLSv1.3");
         sslContext.init(null, trustAllCerts, new SecureRandom());
 
         // Set the default SSL Socket Factory
