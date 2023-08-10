@@ -39,6 +39,11 @@ stories:
       - intent: next_due_date
       - action: utter_next_due_date
 
+  - story: get interest rate
+    steps:
+      - intent: interest_rate
+      - action: utter_interest_rate
+
 #  - story: story for login happy
 #    steps:
 #      - intent: greet

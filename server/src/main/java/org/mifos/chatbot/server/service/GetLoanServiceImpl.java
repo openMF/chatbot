@@ -28,9 +28,19 @@ public class GetLoanServiceImpl {
     }
     public String getDisbursementDate(String botResponse) {
         GetLoansResponse getLoansResponse = fineractService.getLoanDetails(botResponse);
-        List<DisbursementDetail> disbursementDetails = getLoansResponse.getDisbursementDetails();
-        List<Integer> dateList = disbursementDetails.get(0).getExpectedDisbursementDate();
+        Timeline time = getLoansResponse.getTimeline();
+        List<Integer> dateList = time.getExpectedDisbursementDate();
         return helper.getDate(dateList);
+    }
+
+    public Integer getApprovedPrincipalAmount(String botResponse) {
+        GetLoansResponse getLoansResponse = fineractService.getLoanDetails(botResponse);
+        return getLoansResponse.getApprovedPrincipal();
+    }
+
+    public Integer getInterestRate(String botResponse) {
+        GetLoansResponse getLoansResponse = fineractService.getLoanDetails(botResponse);
+        return getLoansResponse.getAnnualInterestRate();
     }
 
     public String getMaturityDate(String botResponse) {

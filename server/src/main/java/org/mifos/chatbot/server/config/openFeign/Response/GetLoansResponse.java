@@ -14,6 +14,9 @@ import java.util.List;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class GetLoansResponse {
+
+    private Integer annualInterestRate;
+    private Integer approvedPrincipal;
     private List<DisbursementDetail> disbursementDetails;
     private Timeline timeline;
     private RepaymentSchedule repaymentSchedule;

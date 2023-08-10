@@ -23,6 +23,8 @@ public class ChatServiceImpl {
     private static final String DISBURSEMENT_DATE = "disbursement_date";
     private static final String MATURITY_DATE = "maturity_date";
     private static final String NEXT_DUE_DATE = "next_due_date";
+    private static final String APPROVED_PRINCIPAL = "approved_principal";
+    private static final String INTEREST_RATE = "interest_rate";
 
     @Autowired
     private GetLoanServiceImpl loanService;
@@ -60,6 +62,12 @@ public class ChatServiceImpl {
         }
         else if(intentName.equals(DISBURSEMENT_DATE)) {
             return loanService.getDisbursementDate(botResponse);
+        }
+        else if(intentName.equals(APPROVED_PRINCIPAL)) {
+            return loanService.getApprovedPrincipalAmount(botResponse).toString();
+        }
+        else if(intentName.equals(INTEREST_RATE)) {
+            return loanService.getInterestRate(botResponse).toString();
         }
         else if(intentName.equals(MATURITY_DATE)) {
             return loanService.getMaturityDate(botResponse);

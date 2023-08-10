@@ -207,4 +207,40 @@ nlu:
       - look at my next due date
       - next payment due date
 
+  - intent: approved_principal
+    examples: |
+      - my approved principal
+      - what is my approved principal
+      - whats my approved principal
+      - what's my approved principal
+      - check my approved principal
+      - look my approved principal
+      - give my approved principal
+      - approved principal
+      - what is approved principal
+      - whats approved principal
+      - what's approved principal
+      - check approved principal
+      - look approved principal
+      - give approved principal
 
+  - intent: interest_rate
+    examples: |
+      - What is the interest rate on my loan
+      - what's the interest on my loan
+      - my interest rate
+      - my interest
+      - what's my interest
+      - what's my interest rate
+      - check my interest rate
+      - check my interest
+      - look my interest rate
+      - give my interest rate
+      - interest rate
+      - interest
+      - what is interest rate
+      - whats interest rate
+      - what's interest rate
+      - check interest rate
+      - look interest rate
+      - give interest rate
