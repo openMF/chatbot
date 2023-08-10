@@ -26,6 +26,8 @@ public class ChatServiceImpl {
     private static final String APPROVED_PRINCIPAL = "approved_principal";
     private static final String INTEREST_RATE = "interest_rate";
 
+    private static final String PREVIOUS_PAYMENT_DATE = "previous_payment_date";
+
     @Autowired
     private GetLoanServiceImpl loanService;
 
@@ -74,6 +76,9 @@ public class ChatServiceImpl {
         }
         else if(intentName.equals(NEXT_DUE_DATE)) {
             return loanService.getNextDueDate(botResponse);
+        }
+        else if(intentName.equals(PREVIOUS_PAYMENT_DATE)) {
+            return loanService.getPreviousPaymentDate(botResponse);
         }
         return botResponse;
     }

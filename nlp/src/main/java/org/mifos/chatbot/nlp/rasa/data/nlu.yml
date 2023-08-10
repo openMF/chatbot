@@ -244,3 +244,20 @@ nlu:
       - check interest rate
       - look interest rate
       - give interest rate
+
+  - intent: previous_payment_date
+    examples: |
+      - my previous payment date
+      - what is my previous payment date
+      - whats my previous payment date
+      - what's my previous payment date
+      - check my previous payment date
+      - look my previous payment date
+      - give my previous payment date
+      - previous payment date
+      - what is previous payment date
+      - whats previous payment date
+      - what's previous payment date
+      - check previous payment date
+      - look previous payment date
+      - give previous payment date

@@ -44,6 +44,11 @@ stories:
       - intent: interest_rate
       - action: utter_interest_rate
 
+  - story: get previous payment date
+    steps:
+      - intent: previous_payment_date
+      - action: utter_previous_payment_date
+
 #  - story: story for login happy
 #    steps:
 #      - intent: greet

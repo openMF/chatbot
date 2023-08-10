@@ -20,5 +20,5 @@ public class GetLoansResponse {
     private List<DisbursementDetail> disbursementDetails;
     private Timeline timeline;
     private RepaymentSchedule repaymentSchedule;
-
+    public List<Transaction> transactions;
 }
