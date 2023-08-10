@@ -49,6 +49,11 @@ stories:
       - intent: previous_payment_date
       - action: utter_previous_payment_date
 
+  - story: get previous payment amount
+    steps:
+      - intent: previous_payment_amount
+      - action: utter_previous_payment_amount
+
 #  - story: story for login happy
 #    steps:
 #      - intent: greet

@@ -60,6 +60,16 @@ public class GetLoanServiceImpl {
         return "No payments made";
     }
 
+    public String getPreviousPaymentAmount (String botResponse) {
+        GetLoansResponse getLoansResponse = fineractService.getLoanDetails(botResponse);
+        List<Transaction> transactions = getLoansResponse.getTransactions();
+        if(!transactions.isEmpty()) {
+            Transaction latest = transactions.get(transactions.size()-1);
+            return latest.getAmount().toString();
+        }
+        return "No payments made";
+    }
+
     public String getNextDueDate(String botResponse) {
         GetLoansResponse getLoansResponse = fineractService.getLoanDetails(botResponse);
         RepaymentSchedule schedule = getLoansResponse.getRepaymentSchedule();

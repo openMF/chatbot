@@ -261,3 +261,20 @@ nlu:
       - check previous payment date
       - look previous payment date
       - give previous payment date
+
+  - intent: previous_payment_amount
+    examples: |
+      - my previous payment amount
+      - what is my previous payment amount
+      - whats my previous payment amount
+      - what's my previous payment amount
+      - check my previous payment amount
+      - look my previous payment amount
+      - give my previous payment amount
+      - previous payment amount
+      - what is previous payment amount
+      - whats previous payment amount
+      - what's previous payment amount
+      - check previous payment amount
+      - look previous payment amount
+      - give previous payment amount

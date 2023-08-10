@@ -18,6 +18,7 @@ intents:
   - approved_principal
   - interest_rate
   - previous_payment_date
+  - previous_payment_amount
 
 actions:
   - action_hello_world
@@ -70,6 +71,9 @@ responses:
 
   utter_previous_payment_date:
     - text: "The previous payment date is "
+
+  utter_previous_payment_amount:
+    - text: "The previous payment amount is "
 
 slots:
   username:
