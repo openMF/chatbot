@@ -70,6 +70,16 @@ public class GetLoanServiceImpl {
         return "No payments made";
     }
 
+    public String getPreviousPaymentInterest(String botResponse){
+        GetLoansResponse getLoansResponse = fineractService.getLoanDetails(botResponse);
+        List<Transaction> transactions = getLoansResponse.getTransactions();
+        if(!transactions.isEmpty()) {
+            Transaction latest = transactions.get(transactions.size()-1);
+            return latest.getInterestPortion().toString();
+        }
+        return "No payments made";
+    }
+
     public String getNextDueDate(String botResponse) {
         GetLoansResponse getLoansResponse = fineractService.getLoanDetails(botResponse);
         RepaymentSchedule schedule = getLoansResponse.getRepaymentSchedule();
@@ -77,6 +87,19 @@ public class GetLoanServiceImpl {
         for(Period period : periods) {
             if(!period.isComplete()) {
                 return helper.getDate(period.getDueDate());
+            }
+        }
+        return "No due items";
+    }
+
+    public String getNextDuePrincipal(String botResponse){
+        GetLoansResponse getLoansResponse = fineractService.getLoanDetails(botResponse);
+        RepaymentSchedule schedule = getLoansResponse.getRepaymentSchedule();
+        List<Period> periods = schedule.getPeriods();
+        periods.remove(0);
+        for(Period period : periods) {
+            if(!period.isComplete()) {
+                return String.valueOf(period.getTotalOutstandingForPeriod());
             }
         }
         return "No due items";

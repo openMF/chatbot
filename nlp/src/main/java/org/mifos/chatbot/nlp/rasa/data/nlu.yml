@@ -207,6 +207,26 @@ nlu:
       - look at my next due date
       - next payment due date
 
+  - intent: next_due_principal
+    examples: |
+      - my next due amount
+      - my due amount
+      - what is my next due amount
+      - what is my due amount
+      - give my due amount
+      - give my next due 
+      - due amount
+      - next due amount
+      - look up my due amount
+      - what's my next due amount
+      - check my due amount
+      - check my next due amount
+      - what is my next due amount
+      - what is my due amount
+      - look at my due amount
+      - look at my next due amount
+      - next payment due amount
+
   - intent: approved_principal
     examples: |
       - my approved principal
@@ -278,3 +298,25 @@ nlu:
       - check previous payment amount
       - look previous payment amount
       - give previous payment amount
+
+  - intent: previous_payment_interest
+    examples: |
+      - check interest on my previous payment
+      - check interest on previous payment
+      - check interest on last payment
+      - what is the interest on my previous payment
+      - what's the interest on the previous payment
+      - my previous payment interest
+      - what is my previous payment interest
+      - whats my previous payment interest
+      - what's my previous payment interest
+      - check my previous payment interest
+      - look my previous payment interest
+      - give my previous payment interest
+      - previous payment interest
+      - what is previous payment interest
+      - whats previous payment interest
+      - what's previous payment interest
+      - check previous payment interest
+      - look previous payment interest
+      - give previous payment interest

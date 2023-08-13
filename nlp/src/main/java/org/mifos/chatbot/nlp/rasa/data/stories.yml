@@ -39,6 +39,11 @@ stories:
       - intent: next_due_date
       - action: utter_next_due_date
 
+  - story: get next due principal
+    steps:
+      - intent: next_due_principal
+      - action: utter_next_due_principal
+
   - story: get interest rate
     steps:
       - intent: interest_rate
@@ -53,6 +58,11 @@ stories:
     steps:
       - intent: previous_payment_amount
       - action: utter_previous_payment_amount
+
+  - story: get interest on previous payment
+    steps:
+      - intent: previous_payment_interest
+      - action: utter_previous_payment_interest
 
 #  - story: story for login happy
 #    steps:

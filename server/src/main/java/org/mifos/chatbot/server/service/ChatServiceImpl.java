@@ -23,10 +23,12 @@ public class ChatServiceImpl {
     private static final String DISBURSEMENT_DATE = "disbursement_date";
     private static final String MATURITY_DATE = "maturity_date";
     private static final String NEXT_DUE_DATE = "next_due_date";
+    private static final String NEXT_DUE_PRINCIPAL = "next_due_principal";
     private static final String APPROVED_PRINCIPAL = "approved_principal";
     private static final String INTEREST_RATE = "interest_rate";
     private static final String PREVIOUS_PAYMENT_DATE = "previous_payment_date";
     private static final String PREVIOUS_PAYMENT_AMOUNT = "previous_payment_amount";
+    private static final String PREVIOUS_PAYMENT_INTEREST = "previous_payment_interest";
 
     @Autowired
     private GetLoanServiceImpl loanService;
@@ -77,11 +79,17 @@ public class ChatServiceImpl {
         else if(intentName.equals(NEXT_DUE_DATE)) {
             return loanService.getNextDueDate(botResponse);
         }
+        else if(intentName.equals(NEXT_DUE_PRINCIPAL)) {
+            return loanService.getNextDuePrincipal(botResponse);
+        }
         else if(intentName.equals(PREVIOUS_PAYMENT_DATE)) {
             return loanService.getPreviousPaymentDate(botResponse);
         }
         else if(intentName.equals(PREVIOUS_PAYMENT_AMOUNT)) {
             return loanService.getPreviousPaymentAmount(botResponse);
+        }
+        else if(intentName.equals(PREVIOUS_PAYMENT_INTEREST)) {
+            return loanService.getPreviousPaymentInterest(botResponse);
         }
 
         return botResponse;

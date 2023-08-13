@@ -15,10 +15,12 @@ intents:
   - disbursement_date
   - maturity_date
   - next_due_date
+  - next_due_principal
   - approved_principal
   - interest_rate
   - previous_payment_date
   - previous_payment_amount
+  - previous_payment_interest
 
 actions:
   - action_hello_world
@@ -74,6 +76,12 @@ responses:
 
   utter_previous_payment_amount:
     - text: "The previous payment amount is "
+
+  utter_previous_payment_interest:
+    - text: "The previous payment interest is "
+
+  utter_next_due_principal:
+    - text: "The next due amount is "
 
 slots:
   username:
