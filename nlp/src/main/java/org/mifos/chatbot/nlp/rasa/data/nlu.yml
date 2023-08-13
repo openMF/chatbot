@@ -320,3 +320,20 @@ nlu:
       - check previous payment interest
       - look previous payment interest
       - give previous payment interest
+
+  - intent: arrear_day
+    examples: |
+      - my arrear day
+      - what is my arrear day
+      - whats my arrear day
+      - what's my arrear day
+      - check my arrear day
+      - look my arrear day
+      - give my arrear+ day
+      - arrear day
+      - what is arrear day
+      - whats arrear day
+      - what's arrear day
+      - check arrear day
+      - look arrear day
+      - give arrear day

@@ -64,6 +64,11 @@ stories:
       - intent: previous_payment_interest
       - action: utter_previous_payment_interest
 
+  - story: number of days in arrear
+    steps:
+      - intent: arrear_day
+      - action: utter_arrear_day
+
 #  - story: story for login happy
 #    steps:
 #      - intent: greet

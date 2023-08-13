@@ -29,6 +29,7 @@ public class ChatServiceImpl {
     private static final String PREVIOUS_PAYMENT_DATE = "previous_payment_date";
     private static final String PREVIOUS_PAYMENT_AMOUNT = "previous_payment_amount";
     private static final String PREVIOUS_PAYMENT_INTEREST = "previous_payment_interest";
+    private static final String ARREAR_DAY = "arrear_day";
 
     @Autowired
     private GetLoanServiceImpl loanService;
@@ -90,6 +91,9 @@ public class ChatServiceImpl {
         }
         else if(intentName.equals(PREVIOUS_PAYMENT_INTEREST)) {
             return loanService.getPreviousPaymentInterest(botResponse);
+        }
+        else if(intentName.equals(ARREAR_DAY)) {
+            return loanService.getArrearDays(botResponse);
         }
 
         return botResponse;

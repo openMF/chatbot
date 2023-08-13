@@ -104,4 +104,13 @@ public class GetLoanServiceImpl {
         }
         return "No due items";
     }
+
+    public String getArrearDays(String botResponse) {
+        GetLoansResponse getLoansResponse = fineractService.getLoanDetails(botResponse);
+        Delinquent delinquent = getLoansResponse.getDelinquent();
+        if(delinquent.getDelinquentDate() != null) {
+            return helper.getDate(delinquent.getDelinquentDate());
+        }
+        return "No arrears";
+    }
 }

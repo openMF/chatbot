@@ -21,4 +21,6 @@ public class GetLoansResponse {
     private Timeline timeline;
     private RepaymentSchedule repaymentSchedule;
     public List<Transaction> transactions;
+    public Delinquent delinquent;
+
 }

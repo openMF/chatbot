@@ -21,6 +21,7 @@ intents:
   - previous_payment_date
   - previous_payment_amount
   - previous_payment_interest
+  - arrear_day
 
 actions:
   - action_hello_world
@@ -82,6 +83,9 @@ responses:
 
   utter_next_due_principal:
     - text: "The next due amount is "
+
+  utter_arrear_day:
+    - text: "Arrears since  "
 
 slots:
   username:
