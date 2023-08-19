@@ -113,4 +113,18 @@ public class GetLoanServiceImpl {
         }
         return "No arrears";
     }
+
+    public String getLoanDisbursedDate(String botResponse) {
+        GetLoansResponse getLoansResponse = fineractService.getLoanDetails(botResponse);
+        Timeline time = getLoansResponse.getTimeline();
+        List<Integer> dateList = time.getActualDisbursementDate();
+        return helper.getDate(dateList);
+    }
+
+    public String getLoanApprovedDate(String botResponse) {
+        GetLoansResponse getLoansResponse = fineractService.getLoanDetails(botResponse);
+        Timeline time = getLoansResponse.getTimeline();
+        List<Integer> dateList = time.getApprovedOnDate();
+        return helper.getDate(dateList);
+    }
 }

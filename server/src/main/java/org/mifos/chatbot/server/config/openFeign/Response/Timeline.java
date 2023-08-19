@@ -14,6 +14,9 @@ import java.util.List;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Timeline {
+
+    private List<Integer> approvedOnDate;
+    private List<Integer> actualDisbursementDate;
     private List<Integer> expectedDisbursementDate;
     private List<Integer> expectedMaturityDate;
 }

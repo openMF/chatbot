@@ -22,6 +22,8 @@ intents:
   - previous_payment_amount
   - previous_payment_interest
   - arrear_day
+  - loan_disbursed_date
+  - loan_approved_date
 
 actions:
   - action_hello_world
@@ -86,6 +88,12 @@ responses:
 
   utter_arrear_day:
     - text: "Arrears since  "
+
+  utter_loan_disbursed_date:
+    - text: "Your loan disbursed date is "
+
+  utter_loan_approved_date:
+    - text: "Your loan was approved on "
 
 slots:
   username:

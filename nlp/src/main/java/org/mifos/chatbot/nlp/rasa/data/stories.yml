@@ -69,6 +69,16 @@ stories:
       - intent: arrear_day
       - action: utter_arrear_day
 
+  - story: get loan disbursed date
+    steps:
+      - intent: loan_disbursed_date
+      - action: utter_loan_disbursed_date
+
+  - story: get loan approved date
+    steps:
+      - intent: loan_approved_date
+      - action: utter_loan_approved_date
+
 #  - story: story for login happy
 #    steps:
 #      - intent: greet

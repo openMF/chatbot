@@ -337,3 +337,39 @@ nlu:
       - check arrear day
       - look arrear day
       - give arrear day
+
+  - intent: loan_disbursed_date
+    examples: |
+      - what is the loan disbursed date
+      - what's the loan disbursed date
+      - when was the loan disbursed
+      - tell me the loan disbursed date
+      - loan disbursed date
+      - check loan disbursed date
+      - tell loan disbursed date
+      - look up the loan disbursed date
+      - give loan disbursed date
+      - my loan loan disbursed date
+      - what is my loan disbursed date
+      - tell the loan disbursed date
+      - find loan disbursed date
+      - fetch loan disbursed date
+      - disbursed date
+
+  - intent: loan_approved_date
+    examples: |
+      - what is the loan approved date
+      - what's the loan approved date
+      - when was the loan disbursed
+      - tell me the loan approved date
+      - loan approved date
+      - check loan approved date
+      - tell loan approved date
+      - look up the loan approved date
+      - give loan approved date
+      - my loan loan approved date
+      - what is my loan approved date
+      - tell the loan approved date
+      - find loan approved date
+      - fetch loan approved date
+      - approved date
