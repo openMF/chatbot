@@ -22,4 +22,8 @@ public interface FineractServiceOpenFeign {
     ResponseEntity<String> getLoans(@PathVariable Integer loanId, @RequestParam String associations,
                                     @RequestParam String exclude, @RequestParam String tenantIdentifier,
                                     @RequestHeader("Authorization") String authorization);
+
+    @GetMapping(value = "/v1/clients/{clientId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    ResponseEntity<String> getClientInfo(@PathVariable Integer clientId, @RequestParam String tenantIdentifier,
+                                     @RequestHeader("Authorization") String authorization);
 }

@@ -135,4 +135,10 @@ public class GetLoanServiceImpl {
         periods.remove(0);
         return helper.getDate(periods.get(0).getDueDate());
     }
+
+    public String getClientActivationDate(String botResponse) {
+        GetClientInfoResponse response = fineractService.getClientInfo();
+        List<Integer> date = response.getActivationDate();
+        return helper.getDate(date);
+    }
 }

@@ -84,6 +84,11 @@ stories:
       - intent: first_repayment_date
       - action: utter_first_repayment_date
 
+  - story: get client activation date
+    steps:
+      - intent: client_activation_date
+      - action: utter_client_activation_date
+
 #  - story: story for login happy
 #    steps:
 #      - intent: greet

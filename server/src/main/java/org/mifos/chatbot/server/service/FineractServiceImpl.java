@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.introspect.VisibilityChecker;
 import okhttp3.*;
 import org.mifos.chatbot.server.config.DisableCertificateValidation;
 import org.mifos.chatbot.server.config.openFeign.Response.DisbursementDetail;
+import org.mifos.chatbot.server.config.openFeign.Response.GetClientInfoResponse;
 import org.mifos.chatbot.server.config.openFeign.Response.GetLoansResponse;
 import org.mifos.chatbot.server.model.LoanAccount;
 import org.mifos.chatbot.server.model.LoanAccounts;
@@ -110,6 +111,25 @@ public class FineractServiceImpl {
             try {
                 GetLoansResponse loansResponse = objectMapper.readValue(feignResponse.getBody().toString(), GetLoansResponse.class);
                 return loansResponse;
+            } catch (JsonMappingException e) {
+                throw new RuntimeException(e);
+            } catch (JsonProcessingException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return null;
+    }
+
+    public GetClientInfoResponse getClientInfo() {
+        String admin_username = "mifos";
+        String admin_password = "password";
+        String basicAuthCredentials = "Basic " + Base64.getEncoder().encodeToString((admin_username + ":" + admin_password).getBytes());
+        ResponseEntity feignResponse = openFeign.getClientInfo(1,"gsoc", basicAuthCredentials);
+        if(feignResponse.getStatusCode().value() == 200) {
+            ObjectMapper objectMapper = new ObjectMapper();
+            try {
+                GetClientInfoResponse clientInfoResponse = objectMapper.readValue(feignResponse.getBody().toString(), GetClientInfoResponse.class);
+                return clientInfoResponse;
             } catch (JsonMappingException e) {
                 throw new RuntimeException(e);
             } catch (JsonProcessingException e) {

@@ -25,6 +25,7 @@ intents:
   - loan_disbursed_date
   - loan_approved_date
   - first_repayment_date
+  - client_activation_date
 
 actions:
   - action_hello_world
@@ -98,6 +99,9 @@ responses:
 
   utter_first_repayment_date:
     - text: "Your first repayment date is "
+
+  utter_client_activation_date:
+    - text: "Client activation date is "
 
 slots:
   username:

@@ -33,6 +33,7 @@ public class ChatServiceImpl {
     private static final String LOAN_DISBURSED_DATE = "loan_disbursed_date";
     private static final String LOAN_APPROVED_DATE = "loan_approved_date";
     private static final String FIRST_REPAYMENT_DATE = "first_repayment_date";
+    private static final String CLIENT_ACTIVATION_DATE = "client_activation_date";
 
     @Autowired
     private GetLoanServiceImpl loanService;
@@ -106,6 +107,9 @@ public class ChatServiceImpl {
         }
         else if(intentName.equals(FIRST_REPAYMENT_DATE)) {
             return loanService.getFirstRepaymentDate(botResponse);
+        }
+        else if(intentName.equals(CLIENT_ACTIVATION_DATE)){
+            return loanService.getClientActivationDate(botResponse);
         }
 
         return botResponse;

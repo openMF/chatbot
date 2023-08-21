@@ -391,3 +391,18 @@ nlu:
       - find first repayment date
       - fetch first repayment date
       - get first repayment date
+
+  - intent: client_activation_date
+    examples: |
+      - what's my activation date
+      - what's is the client activation date
+      - give activation date
+      - tell client activation date
+      - what is activation date
+      - what is my activation date
+      - what is my client activation date
+      - find activation date
+      - fetch client activation date
+      - get client activation date
+      - look up client activation date
+      - check activation date
