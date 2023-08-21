@@ -127,4 +127,12 @@ public class GetLoanServiceImpl {
         List<Integer> dateList = time.getApprovedOnDate();
         return helper.getDate(dateList);
     }
+
+    public String getFirstRepaymentDate(String botResponse) {
+        GetLoansResponse getLoansResponse = fineractService.getLoanDetails(botResponse);
+        RepaymentSchedule schedule = getLoansResponse.getRepaymentSchedule();
+        List<Period> periods = schedule.getPeriods();
+        periods.remove(0);
+        return helper.getDate(periods.get(0).getDueDate());
+    }
 }

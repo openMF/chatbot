@@ -32,6 +32,7 @@ public class ChatServiceImpl {
     private static final String ARREAR_DAY = "arrear_day";
     private static final String LOAN_DISBURSED_DATE = "loan_disbursed_date";
     private static final String LOAN_APPROVED_DATE = "loan_approved_date";
+    private static final String FIRST_REPAYMENT_DATE = "first_repayment_date";
 
     @Autowired
     private GetLoanServiceImpl loanService;
@@ -102,6 +103,9 @@ public class ChatServiceImpl {
         }
         else if(intentName.equals(LOAN_APPROVED_DATE)) {
             return loanService.getLoanApprovedDate(botResponse);
+        }
+        else if(intentName.equals(FIRST_REPAYMENT_DATE)) {
+            return loanService.getFirstRepaymentDate(botResponse);
         }
 
         return botResponse;

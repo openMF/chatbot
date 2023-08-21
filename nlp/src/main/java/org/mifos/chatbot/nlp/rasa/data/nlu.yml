@@ -367,9 +367,27 @@ nlu:
       - tell loan approved date
       - look up the loan approved date
       - give loan approved date
-      - my loan loan approved date
+      - my loan approved date
       - what is my loan approved date
       - tell the loan approved date
       - find loan approved date
       - fetch loan approved date
       - approved date
+
+  - intent: first_repayment_date
+    examples: |
+      - what is the first repayment date
+      - what's the first repayment date
+      - when was the first repayment date
+      - tell me the first repayment date
+      - first repayment date
+      - check first repayment date
+      - tell first repayment date
+      - look up the first repayment date
+      - give first repayment date
+      - my first repayment date
+      - what is my first repayment date
+      - tell the first repayment date
+      - find first repayment date
+      - fetch first repayment date
+      - get first repayment date
