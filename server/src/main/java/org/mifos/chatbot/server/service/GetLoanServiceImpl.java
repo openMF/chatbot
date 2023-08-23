@@ -26,12 +26,6 @@ public class GetLoanServiceImpl {
         }
         return null;
     }
-    public String getDisbursementDate(String botResponse) {
-        GetLoansResponse getLoansResponse = fineractService.getLoanDetails(botResponse);
-        Timeline time = getLoansResponse.getTimeline();
-        List<Integer> dateList = time.getExpectedDisbursementDate();
-        return helper.getDate(dateList);
-    }
 
     public Integer getApprovedPrincipalAmount(String botResponse) {
         GetLoansResponse getLoansResponse = fineractService.getLoanDetails(botResponse);
@@ -84,6 +78,7 @@ public class GetLoanServiceImpl {
         GetLoansResponse getLoansResponse = fineractService.getLoanDetails(botResponse);
         RepaymentSchedule schedule = getLoansResponse.getRepaymentSchedule();
         List<Period> periods = schedule.getPeriods();
+        periods.remove(0);
         for(Period period : periods) {
             if(!period.isComplete()) {
                 return helper.getDate(period.getDueDate());

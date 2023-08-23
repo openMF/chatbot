@@ -20,7 +20,6 @@ public class ChatServiceImpl {
     private static final String LOGIN_CREDENTIALS = "login_credentials";
     private static final String LOAN_STATUS = "loan_status";
     private static final String DISBURSEMENT_AMOUNT = "disbursement_amount";
-    private static final String DISBURSEMENT_DATE = "disbursement_date";
     private static final String MATURITY_DATE = "maturity_date";
     private static final String NEXT_DUE_DATE = "next_due_date";
     private static final String NEXT_DUE_PRINCIPAL = "next_due_principal";
@@ -68,9 +67,6 @@ public class ChatServiceImpl {
 //        }
         if(intentName.equals(LOAN_STATUS)) {
             return loanService.getLoanStatus(botResponse, tracker);
-        }
-        else if(intentName.equals(DISBURSEMENT_DATE)) {
-            return loanService.getDisbursementDate(botResponse);
         }
         else if(intentName.equals(APPROVED_PRINCIPAL)) {
             return loanService.getApprovedPrincipalAmount(botResponse).toString();

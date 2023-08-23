@@ -24,11 +24,6 @@ stories:
       - intent: disbursement_interest
       - action: utter_disbursement_interest
 
-  - story: disbursement date
-    steps:
-      - intent: disbursement_date
-      - action: utter_disbursement_date
-
   - story: maturity date
     steps:
       - intent: maturity_date

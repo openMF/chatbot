@@ -153,23 +153,6 @@ nlu:
       - look disbursement interest
       - give disbursement interest
 
-  - intent: disbursement_date
-    examples: |
-      - my disbursement date
-      - what is my disbursement date
-      - whats my disbursement date
-      - what's my disbursement date
-      - check my disbursement date
-      - look my disbursement date
-      - give my disbursement date
-      - disbursement date
-      - what is disbursement date
-      - whats disbursement date
-      - what's disbursement date
-      - check disbursement date
-      - look disbursement date
-      - give disbursement date
-
   - intent: maturity_date
     examples: |
       - my maturity date
@@ -360,7 +343,7 @@ nlu:
     examples: |
       - what is the loan approved date
       - what's the loan approved date
-      - when was the loan disbursed
+      - when was the loan approved
       - tell me the loan approved date
       - loan approved date
       - check loan approved date
