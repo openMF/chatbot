@@ -21,8 +21,6 @@ stories:
     steps:
       - intent: disbursement_amount
       - action: utter_disbursement_amount
-      - intent: disbursement_interest
-      - action: utter_disbursement_interest
 
   - story: maturity date
     steps:

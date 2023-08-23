@@ -136,23 +136,6 @@ nlu:
       - look disbursement amount
       - give disbursement amount
 
-  - intent: disbursement_interest
-    examples: |
-      - my disbursement interest
-      - what is my disbursement interest
-      - whats my disbursement interest
-      - what's my disbursement interest
-      - check my disbursement interest
-      - look my disbursement interest
-      - give my disbursement interest
-      - disbursement interest
-      - what is disbursement interest
-      - whats disbursement interest
-      - what's disbursement interest
-      - check disbursement interest
-      - look disbursement interest
-      - give disbursement interest
-
   - intent: maturity_date
     examples: |
       - my maturity date

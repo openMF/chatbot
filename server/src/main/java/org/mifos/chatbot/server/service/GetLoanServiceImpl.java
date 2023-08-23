@@ -116,6 +116,12 @@ public class GetLoanServiceImpl {
         return helper.getDate(dateList);
     }
 
+    public String getDisbursementAmount(String botResponse) {
+        GetLoansResponse getLoansResponse = fineractService.getLoanDetails(botResponse);
+        RepaymentSchedule schedule = getLoansResponse.getRepaymentSchedule();
+        return String.valueOf(schedule.getTotalPrincipalDisbursed());
+    }
+
     public String getLoanApprovedDate(String botResponse) {
         GetLoansResponse getLoansResponse = fineractService.getLoanDetails(botResponse);
         Timeline time = getLoansResponse.getTimeline();

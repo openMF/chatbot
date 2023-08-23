@@ -107,6 +107,9 @@ public class ChatServiceImpl {
         else if(intentName.equals(CLIENT_ACTIVATION_DATE)){
             return loanService.getClientActivationDate(botResponse);
         }
+        else if(intentName.equals(DISBURSEMENT_AMOUNT)) {
+            return loanService.getDisbursementAmount(botResponse);
+        }
 
         return botResponse;
     }

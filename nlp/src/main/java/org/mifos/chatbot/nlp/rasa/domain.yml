@@ -11,7 +11,6 @@ intents:
   - login_credentials
   - loan_status
   - disbursement_amount
-  - disbursement_interest
   - maturity_date
   - next_due_date
   - next_due_principal
@@ -59,9 +58,6 @@ responses:
 
   utter_disbursement_amount:
     - text: "The disbursement amount is "
-
-  utter_disbursement_interest:
-    - text: "The disbursement interest is "
 
   utter_maturity_date:
     - text: "The maturity date is "
